@@ -1,8 +1,8 @@
 version: "3.3"
 services:
-  flaskapp:
+  frontend:
     build: .
-    image: my-flaskapp
+    image: frontend
     ports:
       - 80:80
     container_name: flask-app
@@ -18,6 +18,13 @@ services:
     image: mvertes/alpine-mongo
     ports:
       - 27017:27017
+    networks:
+      - my-net
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
     networks:
       - my-net
 
