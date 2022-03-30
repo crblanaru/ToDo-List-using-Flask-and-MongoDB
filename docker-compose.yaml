@@ -4,7 +4,7 @@ services:
     build: .
     image: frontend
     ports:
-      - 80:80
+      - 5000:5000
     container_name: flask-app
     environment:
       - APP_ENV=development
