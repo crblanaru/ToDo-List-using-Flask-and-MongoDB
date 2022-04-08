@@ -14,40 +14,6 @@ services:
       - my-net
     depends_on:
       - mongo
-  backend:
-    build: .
-    image: frontend
-    ports:
-      - 5000:5000
-    container_name: flask-app
-    environment:
-      - APP_ENV=development
-      - MONGO_HOST=mongo
-      - MONGO_PORT=27017
-      - CACHE_PLUGIN=redis
-      - CACHE_PORT=6379
-    networks:
-      - my-net
-  cli:
-    build: .
-    image: frontend
-    ports:
-      - 5000:5000
-    container_name: flask-app
-    environment:
-      - APP_ENV=development
-    networks:
-      - my-net
-  crons:
-    build: .
-    image: frontend
-    ports:
-      - 5000:5000
-    container_name: flask-app
-    environment:
-      - APP_ENV=development
-    networks:
-      - my-net
   mongo:
     image: mvertes/alpine-mongo
     ports:
@@ -55,13 +21,6 @@ services:
     networks:
       - my-net
   cache:
-    image: redis:6.2-alpine
-    restart: always
-    ports:
-      - '6379:6379'
-    networks:
-      - my-net
-  queue:
     image: redis:6.2-alpine
     restart: always
     ports:
