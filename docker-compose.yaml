@@ -14,7 +14,7 @@ services:
       - my-net
     depends_on:
       - mongo
-  frontend:
+  backend:
     build: .
     image: backend
     ports:
