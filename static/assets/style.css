@@ -118,7 +118,7 @@ li a {
     text-decoration: none;
 }
 a.active {
-    background-color: green;
+    background-color: pink;
 }
 /* Change the link color to #111 (black) on hover */
 li a:hover {
